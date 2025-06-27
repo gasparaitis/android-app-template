@@ -1,7 +1,7 @@
 import com.gasparaitisj.convention.gitBuildType
 import com.gasparaitisj.convention.gitCommitCount
 
-internal val packageName = "com.gasparaitisj.offlineapp"
+internal val packageName = "com.gasparaitisj.apptemplate"
 
 plugins {
     alias(libs.plugins.app.android.application)
@@ -46,4 +46,3 @@ dependencies {
     implementation(libs.google.oss.licenses)
     debugImplementation(libs.androidx.compose.ui.tooling)
 }
-

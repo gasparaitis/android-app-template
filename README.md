@@ -1,4 +1,4 @@
-# offline-app
+# app-template
 
 This is a template for creating a new Android project.
 
