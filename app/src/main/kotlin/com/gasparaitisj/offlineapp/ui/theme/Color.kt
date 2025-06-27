@@ -1,4 +1,4 @@
-package com.gasparaitisj.offlineapp.ui.theme
+package com.gasparaitisj.apptemplate.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
