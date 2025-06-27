@@ -1,40 +1,35 @@
+import com.gasparaitisj.convention.gitBuildType
+import com.gasparaitisj.convention.gitCommitCount
+
+internal val packageName = "com.gasparaitisj.offlineapp"
+
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.app.android.application)
+    id("com.google.android.gms.oss-licenses-plugin")
 }
 
 android {
-    compileSdk = 36 // The latest version.
-    namespace = "com.gasparaitisj.offlineapp"
-
+    namespace = packageName
     defaultConfig {
-        applicationId = "com.gasparaitisj.offlineapp"
-        minSdk = 21 // The minimum Compose-supporting version.
-        targetSdk = 36 // The latest version.
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = packageName
+        versionCode = gitCommitCount
+        versionName = "1.0.0"
     }
-
     buildTypes {
+        all {
+            versionNameSuffix = "-$gitCommitCount:$gitBuildType"
+        }
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
-        targetCompatibility = JavaVersion.toVersion(libs.versions.java.get().toInt())
-    }
-    kotlinOptions {
-        jvmTarget = libs.versions.java.get()
-    }
-    buildFeatures {
-        compose = true
+
+    compileSdk = libs.versions.compileSdk.get().toInt()
+    defaultConfig {
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
     }
 }
 
@@ -42,10 +37,12 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.ui.text.google.fonts)
-    implementation(libs.androidx.material3)
-    debugImplementation(libs.androidx.ui.tooling)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.ui.text.google.fonts)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.google.oss.licenses)
+    debugImplementation(libs.androidx.compose.ui.tooling)
 }
+
