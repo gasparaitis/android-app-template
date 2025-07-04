@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 The Android Open Source Project
+ * Copyright 2022 Justas Gasparaitis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.convention
 
 import com.android.build.api.dsl.CommonExtension
@@ -26,9 +25,7 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
 /** Configure base Kotlin with Android options */
-internal fun Project.configureAndroidKotlin(
-    commonExtension: CommonExtension<*, *, *, *, *, *>,
-) {
+internal fun Project.configureAndroidKotlin(commonExtension: CommonExtension<*, *, *, *, *, *>) {
     commonExtension.apply {
         compileSdk = ProjectVersions.Android.COMPILE_SDK
         defaultConfig.minSdk = ProjectVersions.Android.MIN_SDK

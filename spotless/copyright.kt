@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Justas Gasparaitis
+ * Copyright $YEAR Justas Gasparaitis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-
-class DataConventionPlugin : Plugin<Project> {
-    override fun apply(target: Project) {
-        with(target) {
-            with(pluginManager) {
-                apply("convention.android.library")
-                apply("convention.hilt")
-                apply("convention.testing")
-            }
-        }
-    }
-}
+package

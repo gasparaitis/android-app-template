@@ -15,5 +15,6 @@
      limitations under the License.
 -->
 <resources>
-    <string name="app_name">AppTemplate</string>
+
+    <style name="Theme.AppTemplate" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

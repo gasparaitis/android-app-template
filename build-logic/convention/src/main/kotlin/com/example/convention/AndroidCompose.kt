@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 The Android Open Source Project
+ * Copyright 2022 Justas Gasparaitis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.example.convention
 
 import com.android.build.api.dsl.CommonExtension
@@ -24,9 +23,7 @@ import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
 
 /** Configure Compose-specific options */
-internal fun Project.configureAndroidCompose(
-    commonExtension: CommonExtension<*, *, *, *, *, *>,
-) {
+internal fun Project.configureAndroidCompose(commonExtension: CommonExtension<*, *, *, *, *, *>) {
     commonExtension.apply {
         buildFeatures { compose = true }
 
@@ -70,6 +67,7 @@ internal fun Project.configureAndroidCompose(
             .let(reportsDestination::set)
 
         stabilityConfigurationFiles.add(
-            isolated.rootProject.projectDirectory.file("compose_compiler_config.conf"))
+            isolated.rootProject.projectDirectory.file("compose_compiler_config.conf")
+        )
     }
 }
