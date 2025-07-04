@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.example.convention.implementation
-import com.example.convention.libs
+import com.example.template.convention.implementation
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
@@ -29,9 +28,6 @@ class FeatureConventionPlugin : Plugin<Project> {
             }
             dependencies {
                 implementation(project(":core:designsystem"))
-                implementation(libs.findLibrary("hilt.navigation"))
-                implementation(libs.findLibrary("lifecycle.compose.runtime"))
-                implementation(libs.findLibrary("lifecycle.compose.viewmodel"))
             }
         }
     }

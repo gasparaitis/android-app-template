@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.example.convention.ProjectVersions
+import com.example.template.convention.ProjectVersions
 
 plugins { alias(libs.plugins.convention.android.application) }
 
@@ -21,6 +21,7 @@ android {
     namespace = ProjectVersions.Android.APP_ID
     defaultConfig {
         applicationId = ProjectVersions.Android.APP_ID
+        targetSdk = ProjectVersions.Android.TARGET_SDK
         versionCode = ProjectVersions.Android.APP_VERSION_CODE
         versionName = ProjectVersions.Android.APP_VERSION_NAME
     }
@@ -35,19 +36,12 @@ android {
             )
         }
     }
-
-    compileSdk = ProjectVersions.Android.COMPILE_SDK
-    defaultConfig {
-        minSdk = ProjectVersions.Android.MIN_SDK
-        targetSdk = ProjectVersions.Android.TARGET_SDK
-    }
 }
 
 dependencies {
     implementation(project(":core:designsystem"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
@@ -58,4 +52,4 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
 }
 
-dependencyGuard { configuration("prodReleaseRuntimeClasspath") }
+dependencyGuard { configuration("releaseRuntimeClasspath") }

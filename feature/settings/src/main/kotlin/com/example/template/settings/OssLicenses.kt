@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.apptemplate
+package com.example.template.settings
 
 import android.content.Context
 import android.content.Intent
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
-fun Context.startOssLicensesActivity(title: String = "Open source licenses") {
+fun Context.startOssLicensesActivity(title: String = "Open source licenses") =
     startActivity(
         Intent(/* packageContext= */ this, /* cls= */ OssLicensesMenuActivity::class.java)
     )
-}

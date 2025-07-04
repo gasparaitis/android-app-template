@@ -41,10 +41,10 @@ repositories {
 
 dependencies {
     compileOnly(libs.android.gradle.plugin)
-    compileOnly(libs.kotlin.gradle.plugin)
-    compileOnly(libs.ksp.gradle.plugin)
-    implementation(libs.detekt.gradle.plugin)
     compileOnly(libs.compose.gradle.plugin)
+    compileOnly(libs.kotlin.gradle.plugin)
+    implementation(libs.detekt.gradle.plugin)
+    implementation(libs.ksp.gradle.plugin)
     implementation(libs.spotless.gradle.plugin)
     lintChecks(libs.androidx.lint.gradle)
 }

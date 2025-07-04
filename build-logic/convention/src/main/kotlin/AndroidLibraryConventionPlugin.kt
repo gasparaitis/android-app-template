@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import com.android.build.api.dsl.LibraryExtension
-import com.example.convention.configureAndroidKotlin
+import com.example.template.convention.configureAndroidKotlin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply

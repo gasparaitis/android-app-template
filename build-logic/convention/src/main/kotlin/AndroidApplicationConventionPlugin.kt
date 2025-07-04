@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import com.android.build.api.dsl.ApplicationExtension
-import com.example.convention.configureAndroidKotlin
+import com.example.template.convention.configureAndroidKotlin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
@@ -30,6 +30,9 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             apply(plugin = "com.google.android.gms.oss-licenses-plugin")
             apply(plugin = "com.dropbox.dependency-guard")
             apply(plugin = "convention.android.lint")
+            apply(plugin = "convention.compose")
+            apply(plugin = "convention.detekt")
+            apply(plugin = "convention.hilt")
             extensions.configure<ApplicationExtension> { configureAndroidKotlin(this) }
         }
     }

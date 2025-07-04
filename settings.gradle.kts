@@ -38,7 +38,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AppTemplate"
+rootProject.name = "Template"
 
 include(":app")
 
@@ -47,3 +47,5 @@ include(":core")
 include(":core:designsystem")
 
 include(":feature")
+include(":feature:settings")
+include(":domain")

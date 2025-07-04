@@ -15,7 +15,7 @@
  */
 import com.diffplug.gradle.spotless.BaseKotlinExtension
 import com.diffplug.gradle.spotless.SpotlessExtension
-import com.example.convention.libs
+import com.example.template.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

@@ -43,6 +43,7 @@ plugins {
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.serialization) apply false
-    alias(libs.plugins.dependencyGuard) apply false
+    alias(libs.plugins.dependency.guard) apply false
+    alias(libs.plugins.hilt) apply false
     alias(libs.plugins.convention.spotless)
 }

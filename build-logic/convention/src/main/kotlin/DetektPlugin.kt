@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.example.convention.detektPlugins
-import com.example.convention.libs
+import com.example.template.convention.detektPlugins
+import com.example.template.convention.libs
 import io.gitlab.arturbosch.detekt.Detekt
 import org.gradle.api.Plugin
 import org.gradle.api.Project

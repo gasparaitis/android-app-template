@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 import com.android.build.gradle.BaseExtension
-import com.example.convention.androidTestImplementation
-import com.example.convention.implementation
-import com.example.convention.libs
+import com.example.template.convention.androidTestImplementation
+import com.example.template.convention.implementation
+import com.example.template.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
