@@ -22,11 +22,6 @@ plugins {
 
 android {
     namespace = ProjectVersions.Android.APP_ID.plus(".core.designsystem")
-    lint {
-        warningsAsErrors = true
-        abortOnError = true
-        disable.add("GradleDependency")
-    }
 }
 
 dependencies {

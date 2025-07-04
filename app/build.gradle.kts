@@ -15,9 +15,7 @@
  */
 import com.example.convention.ProjectVersions
 
-plugins {
-    alias(libs.plugins.convention.android.application)
-}
+plugins { alias(libs.plugins.convention.android.application) }
 
 android {
     namespace = ProjectVersions.Android.APP_ID
@@ -27,13 +25,14 @@ android {
         versionName = ProjectVersions.Android.APP_VERSION_NAME
     }
     buildTypes {
-        all {
-            versionNameSuffix = ProjectVersions.Android.APP_VERSION_NAME_SUFFIX
-        }
+        all { versionNameSuffix = ProjectVersions.Android.APP_VERSION_NAME_SUFFIX }
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
         }
     }
 
@@ -45,6 +44,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:designsystem"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -57,3 +57,5 @@ dependencies {
     implementation(libs.google.oss.licenses)
     debugImplementation(libs.androidx.compose.ui.tooling)
 }
+
+dependencyGuard { configuration("prodReleaseRuntimeClasspath") }

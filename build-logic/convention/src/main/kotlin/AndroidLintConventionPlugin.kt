@@ -13,23 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.LibraryExtension
-import com.example.convention.configureAndroidKotlin
+import com.android.build.api.dsl.Lint
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
-import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.configure
 
-class AndroidLibraryConventionPlugin : Plugin<Project> {
+class AndroidLintConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            with(pluginManager) {
-                apply("com.android.library")
-                apply("org.jetbrains.kotlin.android")
-                apply("org.jetbrains.kotlin.plugin.serialization")
-                apply(plugin = "convention.android.lint")
+            when {
+                pluginManager.hasPlugin("com.android.application") ->
+                    configure<ApplicationExtension> { lint(Lint::configure) }
+
+                pluginManager.hasPlugin("com.android.library") ->
+                    configure<LibraryExtension> { lint(Lint::configure) }
+
+                else -> {
+                    apply(plugin = "com.android.lint")
+                    configure<Lint>(Lint::configure)
+                }
             }
-            configureAndroidKotlin(commonExtension = extensions.getByType<LibraryExtension>())
         }
     }
+}
+
+private fun Lint.configure() {
+    xmlReport = true
+    sarifReport = true
+    checkDependencies = true
+    disable += "GradleDependency"
 }
