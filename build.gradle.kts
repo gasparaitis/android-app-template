@@ -10,9 +10,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath(libs.google.oss.licenses.plugin) {
-            exclude(group = "com.google.protobuf")
-        }
+        classpath(libs.google.oss.licenses.plugin) { exclude(group = "com.google.protobuf") }
     }
 }
 
@@ -29,4 +27,5 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.convention.spotless)
 }

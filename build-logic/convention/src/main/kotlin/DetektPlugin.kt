@@ -9,14 +9,8 @@ import org.gradle.kotlin.dsl.withType
 class DetektPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            with(pluginManager) {
-                apply("io.gitlab.arturbosch.detekt")
-            }
-
-            dependencies {
-                detektPlugins(libs.findLibrary("detekt.compose"))
-            }
-
+            with(pluginManager) { apply("io.gitlab.arturbosch.detekt") }
+            dependencies { detektPlugins(libs.findLibrary("detekt.compose")) }
             tasks.withType<Detekt> {
                 parallel = true
                 config.setFrom(files("${rootProject.rootDir}/.detekt/detekt.yml"))
@@ -25,21 +19,11 @@ class DetektPlugin : Plugin<Project> {
                 exclude("**/resources/**")
                 exclude("**/build/**")
                 reports {
-                    txt {
-                        required.set(true)
-                    }
-                    sarif {
-                        required.set(false)
-                    }
-                    xml {
-                        required.set(false)
-                    }
-                    md {
-                        required.set(false)
-                    }
-                    html {
-                        required.set(false)
-                    }
+                    txt { required.set(true) }
+                    sarif { required.set(false) }
+                    xml { required.set(false) }
+                    md { required.set(false) }
+                    html { required.set(false) }
                 }
             }
         }

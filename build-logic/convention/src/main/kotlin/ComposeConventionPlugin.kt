@@ -10,13 +10,9 @@ import org.gradle.kotlin.dsl.dependencies
 class ComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            with(pluginManager) {
-                apply("org.jetbrains.kotlin.plugin.compose")
-            }
+            with(pluginManager) { apply("org.jetbrains.kotlin.plugin.compose") }
             extensions.configure<BaseExtension> {
-                buildFeatures.apply {
-                    compose = true
-                }
+                buildFeatures.apply { compose = true }
                 dependencies {
                     val bom = libs.findLibrary("compose.bom")
                     implementation(platform(bom))

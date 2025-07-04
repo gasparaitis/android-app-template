@@ -12,9 +12,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             apply(plugin = "org.jetbrains.kotlin.android")
             apply(plugin = "org.jetbrains.kotlin.plugin.compose")
             apply(plugin = "com.google.android.gms.oss-licenses-plugin")
-            extensions.configure<ApplicationExtension> {
-                configureAndroidKotlin(this)
-            }
+            extensions.configure<ApplicationExtension> { configureAndroidKotlin(this) }
         }
     }
 }

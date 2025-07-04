@@ -1,12 +1,12 @@
 package com.example.convention
 
+import java.util.Optional
 import org.gradle.api.Project
 import org.gradle.api.artifacts.MinimalExternalModuleDependency
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.api.provider.Provider
 import org.gradle.kotlin.dsl.DependencyHandlerScope
-import java.util.Optional
 
 private typealias Dependency = Optional<Provider<MinimalExternalModuleDependency>>
 
@@ -54,4 +54,5 @@ internal fun DependencyHandlerScope.coreLibraryDesugaring(dependency: Dependency
     add("coreLibraryDesugaring", dependency.get())
 }
 
-internal val Project.libs: VersionCatalog get() = extensions.getByType(VersionCatalogsExtension::class.java).named("libs")
+internal val Project.libs: VersionCatalog
+    get() = extensions.getByType(VersionCatalogsExtension::class.java).named("libs")

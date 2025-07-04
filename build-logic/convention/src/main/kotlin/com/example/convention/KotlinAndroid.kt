@@ -25,10 +25,10 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
-/**
- * Configure base Kotlin with Android options
- */
-internal fun Project.configureAndroidKotlin(commonExtension: CommonExtension<*, *, *, *, *, *>,) {
+/** Configure base Kotlin with Android options */
+internal fun Project.configureAndroidKotlin(
+    commonExtension: CommonExtension<*, *, *, *, *, *>,
+) {
     commonExtension.apply {
         compileSdk = ProjectVersions.Android.COMPILE_SDK
         defaultConfig.minSdk = ProjectVersions.Android.MIN_SDK
@@ -40,9 +40,7 @@ internal fun Project.configureAndroidKotlin(commonExtension: CommonExtension<*, 
     configureKotlin<KotlinAndroidProjectExtension>()
 }
 
-/**
- * Configure base Kotlin options for JVM (non-Android)
- */
+/** Configure base Kotlin options for JVM (non-Android) */
 internal fun Project.configureJvmKotlin() {
     extensions.configure<JavaPluginExtension> {
         sourceCompatibility = ProjectVersions.Java.JAVA_VERSION
@@ -51,18 +49,13 @@ internal fun Project.configureJvmKotlin() {
     configureKotlin<KotlinJvmProjectExtension>()
 }
 
-/**
- * Configure base Kotlin options
- */
+/** Configure base Kotlin options */
 private inline fun <reified T : KotlinBaseExtension> Project.configureKotlin() =
     configure<T> {
         // Treat all Kotlin warnings as errors (disabled by default)
         // Override by setting warningsAsErrors=true in your ~/.gradle/gradle.properties
-        val warningsAsErrors = providers
-            .gradleProperty("warningsAsErrors")
-            .map {
-                it.toBoolean()
-            }.orElse(false)
+        val warningsAsErrors =
+            providers.gradleProperty("warningsAsErrors").map { it.toBoolean() }.orElse(false)
         when (this) {
             is KotlinAndroidProjectExtension -> compilerOptions
             is KotlinJvmProjectExtension -> compilerOptions

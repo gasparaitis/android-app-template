@@ -24,9 +24,10 @@ class MainActivity : ComponentActivity() {
             AppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        modifier = Modifier
-                            .padding(innerPadding)
-                            .clickable { context.startOssLicensesActivity() },
+                        modifier =
+                            Modifier.padding(innerPadding).clickable {
+                                context.startOssLicensesActivity()
+                            },
                         name = "Android",
                     )
                 }
@@ -36,10 +37,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(
-    name: String,
-    modifier: Modifier = Modifier
-) {
+fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
         modifier = modifier,
@@ -49,7 +47,5 @@ fun Greeting(
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    AppTheme {
-        Greeting("Android")
-    }
+    AppTheme { Greeting("Android") }
 }
