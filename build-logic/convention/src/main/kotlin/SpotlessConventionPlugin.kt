@@ -27,13 +27,17 @@ class SpotlessConventionPlugin : Plugin<Project> {
             extensions.getByType(SpotlessExtension::class.java).apply {
                 kotlin {
                     target("**/*.kt")
-                    targetExclude("**/build/**/*.kt")
+                    targetExclude("**/build/**/*.kt", "spotless/*.kt")
                     applyKtfmt(ktfmtVersion)
                     licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
                 }
-                kotlinGradle {
-                    target("*.gradle.kts")
-                    applyKtfmt(ktfmtVersion)
+                kotlinGradle { applyKtfmt(ktfmtVersion) }
+
+                // Not using `kotlinGradle` due to this issue:
+                // https://github.com/diffplug/spotless/issues/1956
+                format("kts") {
+                    target("**/*.kts")
+                    targetExclude("**/build/**/*.kts", "spotless/*.kts")
                     // Look for the first line that doesn't have a block comment (assumed to be the
                     // license)
                     licenseHeaderFile(
@@ -43,7 +47,7 @@ class SpotlessConventionPlugin : Plugin<Project> {
                 }
                 format("xml") {
                     target("**/*.xml")
-                    targetExclude("**/build/**/*.xml")
+                    targetExclude("**/build/**/*.xml", "spotless/*.xml")
                     // Look for the first XML tag that isn't a comment (<!--) or the xml declaration
                     // (<?xml)
                     licenseHeaderFile(rootProject.file("spotless/copyright.xml"), "(<[^!?])")
