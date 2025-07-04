@@ -1,42 +1,51 @@
 [versions]
-compileSdk = "36"
-minSdk = "21" # The minimum Compose-supporting version.
-targetSdk = "36"
-versionName = "1.0.0"
-
 androidxActivityCompose = "1.10.1"
 androidxCoreKtx = "1.16.0"
 androidGradlePlugin = "8.11.0"
 androidxLintGradle = "1.0.0-alpha05"
 composeBom = "2025.06.01"
+detekt = "1.23.8"
+detektCompose = "0.4.22"
 googleOss = "17.1.0"
 googleOssPlugin = "0.10.6"
-java = "21"
 kotlin = "2.2.0"
+ksp = "2.2.0-2.0.2"
+ktfmt = "0.56"
 lifecycleViewModelKtx = "2.9.1"
+spotless = "7.0.4"
 
 [libraries]
+# AndroidX BackHandler, PredictiveBackHandler, ComponentActivity.setContent()
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityCompose" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreKtx" }
+
+# AndroidX ViewModel
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewModelKtx" }
 
-# Lint checks to verify usage of Gradle APIs
+# Lint
 androidx-lint-gradle = { group = "androidx.lint", name = "lint-gradle", version.ref = "androidxLintGradle" }
 
-# BackHandler, PredictiveBackHandler, ComponentActivity.setContent()
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityCompose" }
-
+# Compose Bill of Materials
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+
+# Compose Material 3
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+# Compose Google Fonts
 androidx-compose-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts" }
 
 # Plugins
 android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
-kotlin-compose-plugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin" }
+compose-gradle-plugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+detekt-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose"}
+detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+spotless-gradle-plugin = { group = "com.diffplug.spotless", name = "spotless-plugin-gradle", version.ref = "spotless" }
 google-oss-licenses = { group = "com.google.android.gms", name = "play-services-oss-licenses", version.ref = "googleOss" }
 google-oss-licenses-plugin = { group = "com.google.android.gms", name = "oss-licenses-plugin", version.ref = "googleOssPlugin" }
 
@@ -47,6 +56,15 @@ android-lint = { id = "com.android.lint", version.ref = "androidGradlePlugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 # Plugins defined by this project
-app-android-application = { id = "app.android.application" }
+convention-android-application = { id = "convention.android.application" }
+convention-android-library = { id = "convention.android.library" }
+convention-compose = { id = "convention.compose" }
+convention-hilt = { id = "convention.hilt" }
+convention-feature = { id = "convention.feature" }
+convention-data = { id = "convention.data" }
+convention-testing = { id = "convention.testing" }
+convention-detekt = { id = "convention.detekt" }
+convention-spotless = { id = "convention.spotless" }

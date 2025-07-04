@@ -1,23 +1,19 @@
-import com.gasparaitisj.convention.gitBuildType
-import com.gasparaitisj.convention.gitCommitCount
-
-internal val packageName = "com.gasparaitisj.apptemplate"
+import com.example.convention.ProjectVersions
 
 plugins {
-    alias(libs.plugins.app.android.application)
-    id("com.google.android.gms.oss-licenses-plugin")
+    alias(libs.plugins.convention.android.application)
 }
 
 android {
-    namespace = packageName
+    namespace = ProjectVersions.Android.APP_ID
     defaultConfig {
-        applicationId = packageName
-        versionCode = gitCommitCount
-        versionName = "1.0.0"
+        applicationId = ProjectVersions.Android.APP_ID
+        versionCode = ProjectVersions.Android.APP_VERSION_CODE
+        versionName = ProjectVersions.Android.APP_VERSION_NAME
     }
     buildTypes {
         all {
-            versionNameSuffix = "-$gitCommitCount:$gitBuildType"
+            versionNameSuffix = ProjectVersions.Android.APP_VERSION_NAME_SUFFIX
         }
         release {
             isMinifyEnabled = true
@@ -26,10 +22,10 @@ android {
         }
     }
 
-    compileSdk = libs.versions.compileSdk.get().toInt()
+    compileSdk = ProjectVersions.Android.COMPILE_SDK
     defaultConfig {
-        minSdk = libs.versions.minSdk.get().toInt()
-        targetSdk = libs.versions.targetSdk.get().toInt()
+        minSdk = ProjectVersions.Android.MIN_SDK
+        targetSdk = ProjectVersions.Android.TARGET_SDK
     }
 }
 

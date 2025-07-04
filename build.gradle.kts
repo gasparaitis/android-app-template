@@ -14,7 +14,6 @@ buildscript {
             exclude(group = "com.google.protobuf")
         }
     }
-
 }
 
 /*
