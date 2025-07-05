@@ -29,7 +29,7 @@ class SpotlessConventionPlugin : Plugin<Project> {
                     target("**/*.kt")
                     targetExclude("**/build/**/*.kt", "config/spotless/*.kt")
                     applyKtfmt(ktfmtVersion)
-                    licenseHeaderFile(rootProject.file("config/spotless/copyright.kt"))
+                    licenseHeaderFile(isolated.rootProject.projectDirectory.file("config/spotless/copyright.kt"))
                 }
                 kotlinGradle { applyKtfmt(ktfmtVersion) }
 
@@ -41,7 +41,7 @@ class SpotlessConventionPlugin : Plugin<Project> {
                     // Look for the first line that doesn't have a block comment (assumed to be the
                     // license)
                     licenseHeaderFile(
-                        rootProject.file("config/spotless/copyright.kts"),
+                        isolated.rootProject.projectDirectory.file("config/spotless/copyright.kts"),
                         "(^(?![\\/ ]\\*).*$)",
                     )
                 }
@@ -50,7 +50,7 @@ class SpotlessConventionPlugin : Plugin<Project> {
                     targetExclude("**/build/**/*.xml", "config/spotless/*.xml")
                     // Look for the first XML tag that isn't a comment (<!--) or the xml declaration
                     // (<?xml)
-                    licenseHeaderFile(rootProject.file("config/spotless/copyright.xml"), "(<[^!?])")
+                    licenseHeaderFile(isolated.rootProject.projectDirectory.file("config/spotless/copyright.xml"), "(<[^!?])")
                 }
             }
         }

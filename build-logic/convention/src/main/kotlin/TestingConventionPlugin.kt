@@ -29,8 +29,8 @@ class TestingConventionPlugin : Plugin<Project> {
             }
             dependencies {
                 testImplementation(kotlin("test"))
-                testImplementation(libs.findLibrary("coroutines.test"))
-                testImplementation(libs.findLibrary("junit"))
+                testImplementation(libs.findLibrary("coroutines.test").get())
+                testImplementation(libs.findLibrary("junit").get())
             }
         }
     }

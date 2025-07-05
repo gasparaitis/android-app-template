@@ -25,17 +25,17 @@ class DetektPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) { apply("io.gitlab.arturbosch.detekt") }
-            dependencies { detektPlugins(libs.findLibrary("detekt.compose")) }
-            tasks.withType<Detekt> {
+            dependencies { detektPlugins(libs.findLibrary("detekt.compose").get()) }
+            tasks.withType<Detekt>().configureEach {
                 parallel = true
-                config.setFrom(files("${rootProject.rootDir}/config/detekt/detekt.yml"))
+                config.setFrom(files("${isolated.rootProject.projectDirectory}/config/detekt/detekt.yml"))
                 include("**/*.kt")
                 include("**/*.kts")
                 exclude("**/resources/**")
                 exclude("**/build/**")
                 reports {
-                    txt { required.set(true) }
-                    sarif { required.set(false) }
+                    txt { required.set(false) }
+                    sarif { required.set(true) }
                     xml { required.set(false) }
                     md { required.set(false) }
                     html { required.set(false) }

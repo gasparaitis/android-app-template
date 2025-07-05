@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 import com.android.build.api.dsl.LibraryExtension
+import com.example.template.convention.configureAndroidCompose
 import com.example.template.convention.configureAndroidKotlin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
-import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.configure
 
 class AndroidLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -26,10 +27,14 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.android.library")
                 apply("org.jetbrains.kotlin.android")
+                apply(plugin = "org.jetbrains.kotlin.plugin.compose")
                 apply("org.jetbrains.kotlin.plugin.serialization")
                 apply(plugin = "convention.android.lint")
             }
-            configureAndroidKotlin(commonExtension = extensions.getByType<LibraryExtension>())
+            extensions.configure<LibraryExtension>() {
+                configureAndroidKotlin(commonExtension = this)
+                configureAndroidCompose(commonExtension = this)
+            }
         }
     }
 }

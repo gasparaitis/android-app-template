@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import com.android.build.api.dsl.ApplicationExtension
+import com.example.template.convention.configureAndroidCompose
 import com.example.template.convention.configureAndroidKotlin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -33,7 +34,10 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             apply(plugin = "convention.compose")
             apply(plugin = "convention.detekt")
             apply(plugin = "convention.hilt")
-            extensions.configure<ApplicationExtension> { configureAndroidKotlin(this) }
+            extensions.configure<ApplicationExtension> {
+                configureAndroidKotlin(this)
+                configureAndroidCompose(this)
+            }
         }
     }
 }
