@@ -27,30 +27,30 @@ class SpotlessConventionPlugin : Plugin<Project> {
             extensions.getByType(SpotlessExtension::class.java).apply {
                 kotlin {
                     target("**/*.kt")
-                    targetExclude("**/build/**/*.kt", "spotless/*.kt")
+                    targetExclude("**/build/**/*.kt", "config/spotless/*.kt")
                     applyKtfmt(ktfmtVersion)
-                    licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
+                    licenseHeaderFile(rootProject.file("config/spotless/copyright.kt"))
                 }
                 kotlinGradle { applyKtfmt(ktfmtVersion) }
 
                 // Not using `kotlinGradle` due to this issue:
-                // https://github.com/diffplug/spotless/issues/1956
+                // https://github.com/diffplug/config/spotless/issues/1956
                 format("kts") {
                     target("**/*.kts")
-                    targetExclude("**/build/**/*.kts", "spotless/*.kts")
+                    targetExclude("**/build/**/*.kts", "config/spotless/*.kts")
                     // Look for the first line that doesn't have a block comment (assumed to be the
                     // license)
                     licenseHeaderFile(
-                        rootProject.file("spotless/copyright.kts"),
+                        rootProject.file("config/spotless/copyright.kts"),
                         "(^(?![\\/ ]\\*).*$)",
                     )
                 }
                 format("xml") {
                     target("**/*.xml")
-                    targetExclude("**/build/**/*.xml", "spotless/*.xml")
+                    targetExclude("**/build/**/*.xml", "config/spotless/*.xml")
                     // Look for the first XML tag that isn't a comment (<!--) or the xml declaration
                     // (<?xml)
-                    licenseHeaderFile(rootProject.file("spotless/copyright.xml"), "(<[^!?])")
+                    licenseHeaderFile(rootProject.file("config/spotless/copyright.xml"), "(<[^!?])")
                 }
             }
         }
