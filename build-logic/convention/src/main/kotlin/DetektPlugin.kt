@@ -28,7 +28,7 @@ class DetektPlugin : Plugin<Project> {
             dependencies { detektPlugins(libs.findLibrary("detekt.compose")) }
             tasks.withType<Detekt> {
                 parallel = true
-                config.setFrom(files("${rootProject.rootDir}/.detekt/detekt.yml"))
+                config.setFrom(files("${rootProject.rootDir}/config/detekt/detekt.yml"))
                 include("**/*.kt")
                 include("**/*.kts")
                 exclude("**/resources/**")
