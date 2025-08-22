@@ -46,6 +46,7 @@ dependencies {
     implementation(libs.detekt.gradle.plugin)
     implementation(libs.ksp.gradle.plugin)
     implementation(libs.spotless.gradle.plugin)
+    implementation(kotlin("stdlib"))
     lintChecks(libs.androidx.lint.gradle)
 }
 
@@ -55,6 +56,10 @@ gradlePlugin {
             id = libs.plugins.convention.android.application.get().pluginId
             implementationClass = "AndroidApplicationConventionPlugin"
         }
+        register("android.compose.lib") {
+            id = libs.plugins.convention.android.compose.library.get().pluginId
+            implementationClass = "AndroidComposeLibraryConventionPlugin"
+        }
         register("android.lib") {
             id = libs.plugins.convention.android.library.get().pluginId
             implementationClass = "AndroidLibraryConventionPlugin"
@@ -62,10 +67,6 @@ gradlePlugin {
         register("android.lint") {
             id = libs.plugins.convention.android.lint.get().pluginId
             implementationClass = "AndroidLintConventionPlugin"
-        }
-        register("compose") {
-            id = libs.plugins.convention.compose.get().pluginId
-            implementationClass = "ComposeConventionPlugin"
         }
         register("detekt") {
             id = libs.plugins.convention.detekt.get().pluginId

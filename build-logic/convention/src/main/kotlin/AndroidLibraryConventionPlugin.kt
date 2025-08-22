@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 import com.android.build.api.dsl.LibraryExtension
-import com.example.template.convention.configureAndroidCompose
 import com.example.template.convention.configureAndroidKotlin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -27,13 +26,12 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             with(pluginManager) {
                 apply("com.android.library")
                 apply("org.jetbrains.kotlin.android")
-                apply(plugin = "org.jetbrains.kotlin.plugin.compose")
                 apply("org.jetbrains.kotlin.plugin.serialization")
                 apply(plugin = "convention.android.lint")
+                apply(plugin = "convention.detekt")
             }
             extensions.configure<LibraryExtension>() {
                 configureAndroidKotlin(commonExtension = this)
-                configureAndroidCompose(commonExtension = this)
             }
         }
     }

@@ -24,9 +24,6 @@ buildscript {
         }
         mavenCentral()
     }
-    dependencies {
-        classpath(libs.google.oss.licenses.plugin) { exclude(group = "com.google.protobuf") }
-    }
 }
 
 /*
@@ -46,4 +43,5 @@ plugins {
     alias(libs.plugins.dependency.guard) apply false
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.convention.spotless)
+    alias(libs.plugins.about.libraries.android) apply false
 }

@@ -16,8 +16,7 @@
 import com.example.template.convention.ProjectVersions
 
 plugins {
-    alias(libs.plugins.convention.android.library)
-    alias(libs.plugins.convention.compose)
+    alias(libs.plugins.convention.android.compose.library)
 }
 
 android {
@@ -25,9 +24,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.text.google.fonts)
+    implementation(libs.androidx.core)
 }

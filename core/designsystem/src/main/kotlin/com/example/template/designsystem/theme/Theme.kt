@@ -15,17 +15,21 @@
  */
 package com.example.template.designsystem.theme
 
+import android.app.UiModeManager
+import android.content.Context
 import android.os.Build
+import androidx.annotation.ChecksSdkIntAtLeast
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MaterialTheme.shapes
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalInspectionMode
 
 private val lightScheme =
     lightColorScheme(
@@ -261,33 +265,60 @@ private val highContrastDarkColorScheme =
         surfaceContainerHighest = surfaceContainerHighestDarkHighContrast,
     )
 
-@Immutable
-data class ColorFamily(
-    val color: Color,
-    val onColor: Color,
-    val colorContainer: Color,
-    val onColorContainer: Color,
-)
+@ChecksSdkIntAtLeast(api = Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+private fun isContrastAvailable(): Boolean =
+    Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE
 
-val unspecified_scheme =
-    ColorFamily(Color.Unspecified, Color.Unspecified, Color.Unspecified, Color.Unspecified)
+@ChecksSdkIntAtLeast(api = Build.VERSION_CODES.S)
+private fun isDynamicColorAvailable(): Boolean = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+
+/**
+ * From compose-samples/Reply/app/src/main/java/com/example/reply/ui/theme/Type.kt
+ *
+ * @see [compose-samples](https://github.com/android/compose-samples).
+ */
+@Composable
+private fun getContrastAwareColorScheme(isDark: Boolean): ColorScheme {
+    val context = LocalContext.current
+    var colorScheme = if (isDark) darkScheme else lightScheme
+    val isPreview = LocalInspectionMode.current
+    // TODO(b/336693596): UIModeManager is not yet supported in preview
+    if (!isPreview && isContrastAvailable()) {
+        val uiModeManager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
+        val contrastLevel = uiModeManager.contrast
+
+        colorScheme =
+            when (contrastLevel) {
+                in 0.0f..0.33f -> if (isDark) darkScheme else lightScheme
+                in 0.34f..0.66f ->
+                    if (isDark) mediumContrastDarkColorScheme else mediumContrastLightColorScheme
+                in 0.67f..1.0f ->
+                    if (isDark) highContrastDarkColorScheme else highContrastLightColorScheme
+                else -> if (isDark) darkScheme else lightScheme
+            }
+        return colorScheme
+    } else return colorScheme
+}
 
 @Composable
 fun AppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
-    content: @Composable() () -> Unit,
+    content: @Composable () -> Unit,
 ) {
     val colorScheme =
         when {
-            dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+            dynamicColor && isDynamicColorAvailable() -> {
                 val context = LocalContext.current
                 if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
             }
-            darkTheme -> darkScheme
-            else -> lightScheme
+            else -> getContrastAwareColorScheme(isDark = darkTheme)
         }
 
-    MaterialTheme(colorScheme = colorScheme, typography = AppTypography, content = content)
+    MaterialTheme(
+        colorScheme = colorScheme,
+        typography = AppTypography,
+        shapes = shapes,
+        content = content,
+    )
 }

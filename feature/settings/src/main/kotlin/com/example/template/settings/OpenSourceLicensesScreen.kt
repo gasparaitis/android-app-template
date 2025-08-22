@@ -15,11 +15,16 @@
  */
 package com.example.template.settings
 
-import android.content.Context
-import android.content.Intent
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import com.mikepenz.aboutlibraries.ui.compose.android.rememberLibraries
+import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 
-fun Context.startOssLicensesActivity(title: String = "Open source licenses") =
-    startActivity(
-        Intent(/* packageContext= */ this, /* cls= */ OssLicensesMenuActivity::class.java)
+@Composable
+fun OpenSourceLicensesScreen(modifier: Modifier = Modifier) =
+    LibrariesContainer(
+        modifier = Modifier.safeDrawingPadding().fillMaxSize().then(modifier),
+        libraries = rememberLibraries().value,
     )

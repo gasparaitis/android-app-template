@@ -13,26 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.android.build.gradle.BaseExtension
-import com.example.template.convention.androidTestImplementation
-import com.example.template.convention.implementation
-import com.example.template.convention.libs
+import com.android.build.api.dsl.LibraryExtension
+import com.example.template.convention.configureAndroidCompose
+import com.example.template.convention.configureAndroidKotlin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.dependencies
 
-class ComposeConventionPlugin : Plugin<Project> {
+class AndroidComposeLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            with(pluginManager) { apply("org.jetbrains.kotlin.plugin.compose") }
-            extensions.configure<BaseExtension> {
-                buildFeatures.apply { compose = true }
-                dependencies {
-                    val bom = libs.findLibrary("androidx.compose.bom").get()
-                    implementation(platform(bom))
-                    androidTestImplementation(platform(bom))
-                }
+            with(pluginManager) {
+                apply("com.android.library")
+                apply("org.jetbrains.kotlin.android")
+                apply(plugin = "org.jetbrains.kotlin.plugin.compose")
+                apply("org.jetbrains.kotlin.plugin.serialization")
+                apply(plugin = "convention.android.lint")
+            }
+            extensions.configure<LibraryExtension>() {
+                configureAndroidKotlin(commonExtension = this)
+                configureAndroidCompose(commonExtension = this)
             }
         }
     }

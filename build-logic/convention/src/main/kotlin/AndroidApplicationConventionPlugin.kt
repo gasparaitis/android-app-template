@@ -28,10 +28,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             apply(plugin = "org.jetbrains.kotlin.android")
             apply(plugin = "org.jetbrains.kotlin.plugin.compose")
             apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
-            apply(plugin = "com.google.android.gms.oss-licenses-plugin")
             apply(plugin = "com.dropbox.dependency-guard")
             apply(plugin = "convention.android.lint")
-            apply(plugin = "convention.compose")
             apply(plugin = "convention.detekt")
             apply(plugin = "convention.hilt")
             extensions.configure<ApplicationExtension> {

@@ -22,13 +22,10 @@ class FeatureConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-                apply("convention.android.library")
-                apply("convention.compose")
+                apply("convention.android.compose.library")
                 apply("convention.hilt")
             }
-            dependencies {
-                implementation(project(":core:designsystem"))
-            }
+            dependencies { implementation(project(":core:designsystem")) }
         }
     }
 }
