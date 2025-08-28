@@ -15,6 +15,7 @@
  */
 package com.example.template.designsystem.theme
 
+import android.annotation.SuppressLint
 import android.app.UiModeManager
 import android.content.Context
 import android.os.Build
@@ -276,43 +277,50 @@ private fun isDynamicColorAvailable(): Boolean = Build.VERSION.SDK_INT >= Build.
  * From compose-samples/Reply/app/src/main/java/com/example/reply/ui/theme/Type.kt
  *
  * @see [compose-samples](https://github.com/android/compose-samples).
+ *
+ * TODO(b/336693596): UIModeManager is not yet supported in preview.
  */
+@SuppressLint("NewApi") // Suppresses false positive.
 @Composable
-private fun getContrastAwareColorScheme(isDark: Boolean): ColorScheme {
-    val context = LocalContext.current
-    var colorScheme = if (isDark) darkScheme else lightScheme
-    val isPreview = LocalInspectionMode.current
-    // TODO(b/336693596): UIModeManager is not yet supported in preview
-    if (!isPreview && isContrastAvailable()) {
-        val uiModeManager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
-        val contrastLevel = uiModeManager.contrast
+private fun getContrastAwareColorScheme(isDark: Boolean, isEnabled: Boolean): ColorScheme {
+    val defaultColorScheme = if (isDark) darkScheme else lightScheme
+    if (!isEnabled || LocalInspectionMode.current || isContrastAvailable().not()) {
+        return defaultColorScheme
+    }
+    val uiModeManager =
+        LocalContext.current.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
+    val contrastLevel = uiModeManager.contrast
 
-        colorScheme =
-            when (contrastLevel) {
-                in 0.0f..0.33f -> if (isDark) darkScheme else lightScheme
-                in 0.34f..0.66f ->
-                    if (isDark) mediumContrastDarkColorScheme else mediumContrastLightColorScheme
-                in 0.67f..1.0f ->
-                    if (isDark) highContrastDarkColorScheme else highContrastLightColorScheme
-                else -> if (isDark) darkScheme else lightScheme
-            }
-        return colorScheme
-    } else return colorScheme
+    return when (contrastLevel) {
+        in 0.0f..0.33f -> defaultColorScheme
+        in 0.34f..0.66f ->
+            if (isDark) mediumContrastDarkColorScheme else mediumContrastLightColorScheme
+        in 0.67f..1.0f -> if (isDark) highContrastDarkColorScheme else highContrastLightColorScheme
+        else -> defaultColorScheme
+    }
 }
 
 @Composable
 fun AppTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    isDarkThemeEnabled: Boolean = isSystemInDarkTheme(),
+    isDynamicColorEnabled: Boolean = true,
+    isContrastAwarenessEnabled: Boolean = true,
     content: @Composable () -> Unit,
 ) {
     val colorScheme =
         when {
-            dynamicColor && isDynamicColorAvailable() -> {
-                val context = LocalContext.current
-                if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            isDynamicColorEnabled && isDynamicColorAvailable() -> {
+                if (isDarkThemeEnabled) {
+                    dynamicDarkColorScheme(LocalContext.current)
+                } else {
+                    dynamicLightColorScheme(LocalContext.current)
+                }
             }
-            else -> getContrastAwareColorScheme(isDark = darkTheme)
+            else ->
+                getContrastAwareColorScheme(
+                    isDark = isDarkThemeEnabled,
+                    isEnabled = isContrastAwarenessEnabled,
+                )
         }
 
     MaterialTheme(

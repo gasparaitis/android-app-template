@@ -15,6 +15,7 @@
  */
 import com.diffplug.gradle.spotless.BaseKotlinExtension
 import com.diffplug.gradle.spotless.SpotlessExtension
+import com.diffplug.spotless.extra.wtp.EclipseWtpFormatterStep
 import com.example.template.convention.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -48,6 +49,7 @@ class SpotlessConventionPlugin : Plugin<Project> {
                     )
                 }
                 format("xml") {
+                    eclipseWtp(EclipseWtpFormatterStep.XML)
                     target("**/*.xml")
                     targetExclude("**/build/**/*.xml", "config/spotless/*.xml")
                     // Look for the first XML tag that isn't a comment (<!--) or the xml declaration
