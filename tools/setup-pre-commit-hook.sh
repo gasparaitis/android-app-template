@@ -23,23 +23,20 @@ cat > .git/hooks/pre-commit << 'EOF'
 echo "Running Spotless formatting..."
 
 if ! ./gradlew spotlessApply; then
-    echo "❌ Spotless formatting failed. Push rejected."
+    echo "❌ Spotless formatting failed. Commit rejected."
     exit 1
 fi
 
-if ! git diff --quiet; then
-    echo "❌ Spotless made formatting changes. Please review, commit the changes, and try pushing again."
-    echo ""
-    echo "Files that were formatted:"
-    git diff --name-only
-    echo ""
-    echo "To see the changes: git diff"
-    echo "To commit the changes: git add -A && git commit -m 'Apply Spotless formatting'"
-    exit 1
+# Check if Spotless made any changes
+if ! git diff --quiet --exit-code; then
+    echo "ℹ️ Spotless made formatting changes. Staging changes..."
+    # Stage all changes made by Spotless
+    git add -A
 fi
 
-echo "✅ Code formatting is clean. Proceeding with push..."
+echo "✅ Code formatting is clean or has been fixed. Proceeding with commit..."
 exit 0
+
 EOF
 
 # Make hook executable
