@@ -22,6 +22,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 object ProjectVersions {
     object Android {
+        const val APP_DEBUG_APPLICATION_ID_SUFFIX = ".debug"
         const val APP_ID = "com.example.template"
         val APP_VERSION_CODE
             get() = gitCommitCount()

@@ -29,7 +29,7 @@ class DetektPlugin : Plugin<Project> {
             tasks.withType<Detekt>().configureEach {
                 parallel = true
                 config.setFrom(
-                    files("${isolated.rootProject.projectDirectory}/config/detekt/detekt.yml")
+                    files("${isolated.rootProject.projectDirectory}/tools/detekt/detekt.yml")
                 )
                 include("**/*.kt")
                 include("**/*.kts")

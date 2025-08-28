@@ -27,6 +27,12 @@ android {
     }
     buildTypes {
         all { versionNameSuffix = ProjectVersions.Android.APP_VERSION_NAME_SUFFIX }
+        debug {
+            applicationIdSuffix = ProjectVersions.Android.APP_DEBUG_APPLICATION_ID_SUFFIX
+            isDebuggable = true
+            isMinifyEnabled = false
+            isShrinkResources = false
+        }
         release {
             isMinifyEnabled = true
             isShrinkResources = true

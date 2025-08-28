@@ -28,10 +28,10 @@ class SpotlessConventionPlugin : Plugin<Project> {
             extensions.getByType(SpotlessExtension::class.java).apply {
                 kotlin {
                     target("**/*.kt")
-                    targetExclude("**/build/**/*.kt", "config/spotless/*.kt")
+                    targetExclude("**/build/**/*.kt", "tools/spotless/*.kt")
                     applyKtfmt(ktfmtVersion)
                     licenseHeaderFile(
-                        isolated.rootProject.projectDirectory.file("config/spotless/copyright.kt")
+                        isolated.rootProject.projectDirectory.file("tools/spotless/copyright.kt")
                     )
                 }
                 kotlinGradle { applyKtfmt(ktfmtVersion) }
@@ -40,22 +40,22 @@ class SpotlessConventionPlugin : Plugin<Project> {
                 // https://github.com/diffplug/config/spotless/issues/1956
                 format("kts") {
                     target("**/*.kts")
-                    targetExclude("**/build/**/*.kts", "config/spotless/*.kts")
+                    targetExclude("**/build/**/*.kts", "tools/spotless/*.kts")
                     // Look for the first line that doesn't have a block comment (assumed to be the
                     // license)
                     licenseHeaderFile(
-                        isolated.rootProject.projectDirectory.file("config/spotless/copyright.kts"),
+                        isolated.rootProject.projectDirectory.file("tools/spotless/copyright.kts"),
                         "(^(?![\\/ ]\\*).*$)",
                     )
                 }
                 format("xml") {
                     eclipseWtp(EclipseWtpFormatterStep.XML)
                     target("**/*.xml")
-                    targetExclude("**/build/**/*.xml", "config/spotless/*.xml")
+                    targetExclude("**/build/**/*.xml", "tools/spotless/*.xml")
                     // Look for the first XML tag that isn't a comment (<!--) or the xml declaration
                     // (<?xml)
                     licenseHeaderFile(
-                        isolated.rootProject.projectDirectory.file("config/spotless/copyright.xml"),
+                        isolated.rootProject.projectDirectory.file("tools/spotless/copyright.xml"),
                         "(<[^!?])",
                     )
                 }

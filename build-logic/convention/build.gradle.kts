@@ -21,14 +21,14 @@ plugins {
 }
 
 java {
-    // FIXME: Use ProjectVersions.Java.JAVA_VERSION
+    // TODO: Use ProjectVersions.Java.JAVA_VERSION
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
 }
 
 kotlin {
     compilerOptions {
-        // FIXME: Use ProjectVersions.Java.JVM_TARGET
+        // TODO: Use ProjectVersions.Java.JVM_TARGET
         jvmTarget = JvmTarget.JVM_21
     }
 }
