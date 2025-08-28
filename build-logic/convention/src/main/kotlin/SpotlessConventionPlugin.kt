@@ -51,7 +51,7 @@ class SpotlessConventionPlugin : Plugin<Project> {
                 format("xml") {
                     eclipseWtp(EclipseWtpFormatterStep.XML)
                     target("**/*.xml")
-                    targetExclude("**/build/**/*.xml", "tools/spotless/*.xml")
+                    targetExclude("**/build/**/*.xml", "tools/spotless/*.xml", ".idea/**")
                     // Look for the first XML tag that isn't a comment (<!--) or the xml declaration
                     // (<?xml)
                     licenseHeaderFile(
