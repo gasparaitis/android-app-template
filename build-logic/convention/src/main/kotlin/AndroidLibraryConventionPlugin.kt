@@ -29,12 +29,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.plugin.serialization")
                 apply(plugin = "convention.android.lint")
                 apply(plugin = "convention.detekt")
-
-
-
-
-
-
             }
             extensions.configure<LibraryExtension>() {
                 configureAndroidKotlin(commonExtension = this)
