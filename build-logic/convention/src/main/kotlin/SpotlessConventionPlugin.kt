@@ -26,6 +26,15 @@ class SpotlessConventionPlugin : Plugin<Project> {
             pluginManager.apply("com.diffplug.spotless")
             val ktfmtVersion = project.libs.findVersion("ktfmt").get().toString()
             extensions.getByType(SpotlessExtension::class.java).apply {
+                format("html") {
+                    target("**/*.html")
+                    prettier()
+                        .config(mapOf("parser" to "html", "printWidth" to 80, "tabWidth" to 2))
+                }
+                json {
+                    target("**/*.json")
+                    gson().indentWithSpaces(2).sortByKeys()
+                }
                 kotlin {
                     target("**/*.kt")
                     targetExclude("**/build/**/*.kt", "tools/spotless/*.kt")
@@ -34,10 +43,8 @@ class SpotlessConventionPlugin : Plugin<Project> {
                         isolated.rootProject.projectDirectory.file("tools/spotless/copyright.kt")
                     )
                 }
+                /* TODO: Using format("kts") instead of `kotlinGradle` due to this issue: https://github.com/diffplug/spotless/issues/1956 */
                 kotlinGradle { applyKtfmt(ktfmtVersion) }
-
-                // Not using `kotlinGradle` due to this issue:
-                // https://github.com/diffplug/config/spotless/issues/1956
                 format("kts") {
                     target("**/*.kts")
                     targetExclude("**/build/**/*.kts", "tools/spotless/*.kts")
@@ -47,6 +54,17 @@ class SpotlessConventionPlugin : Plugin<Project> {
                         isolated.rootProject.projectDirectory.file("tools/spotless/copyright.kts"),
                         "(^(?![\\/ ]\\*).*$)",
                     )
+                }
+                format("markdown") {
+                    target("**/*.md")
+                    prettier()
+                        .config(
+                            mapOf(
+                                "parser" to "markdown",
+                                "printWidth" to 80,
+                                "proseWrap" to "always",
+                            )
+                        )
                 }
                 format("xml") {
                     eclipseWtp(EclipseWtpFormatterStep.XML)
@@ -58,6 +76,11 @@ class SpotlessConventionPlugin : Plugin<Project> {
                         isolated.rootProject.projectDirectory.file("tools/spotless/copyright.xml"),
                         "(<[^!?])",
                     )
+                }
+                yaml {
+                    target("**/*.yml", "**/*.yaml")
+                    prettier()
+                        .config(mapOf("parser" to "yaml", "printWidth" to 80, "tabWidth" to 2))
                 }
             }
         }
