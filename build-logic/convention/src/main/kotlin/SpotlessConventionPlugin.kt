@@ -26,14 +26,14 @@ class SpotlessConventionPlugin : Plugin<Project> {
             pluginManager.apply("com.diffplug.spotless")
             val ktfmtVersion = project.libs.findVersion("ktfmt").get().toString()
             extensions.getByType(SpotlessExtension::class.java).apply {
+                json {
+                    target("**/*.json")
+                    gson().indentWithSpaces(2).sortByKeys()
+                }
                 format("html") {
                     target("**/*.html")
                     prettier()
                         .config(mapOf("parser" to "html", "printWidth" to 80, "tabWidth" to 2))
-                }
-                json {
-                    target("**/*.json")
-                    gson().indentWithSpaces(2).sortByKeys()
                 }
                 kotlin {
                     target("**/*.kt")
@@ -65,6 +65,11 @@ class SpotlessConventionPlugin : Plugin<Project> {
                                 "proseWrap" to "always",
                             )
                         )
+                }
+                format("toml") {
+                    target("**/*.toml")
+                    prettier(mapOf("prettier-plugin-toml" to "0.3.5"))
+                        .config(mapOf("parser" to "toml", "printWidth" to 80, "tabWidth" to 2))
                 }
                 format("xml") {
                     eclipseWtp(EclipseWtpFormatterStep.XML)
