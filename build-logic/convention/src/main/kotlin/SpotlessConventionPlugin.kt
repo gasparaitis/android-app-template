@@ -28,10 +28,12 @@ class SpotlessConventionPlugin : Plugin<Project> {
             extensions.getByType(SpotlessExtension::class.java).apply {
                 json {
                     target("**/*.json")
+                    targetExclude("**/build/**/*.json")
                     gson().indentWithSpaces(2).sortByKeys()
                 }
                 format("html") {
                     target("**/*.html")
+                    targetExclude("**/build/**/*.html")
                     prettier()
                         .config(mapOf("parser" to "html", "printWidth" to 80, "tabWidth" to 2))
                 }
@@ -57,6 +59,7 @@ class SpotlessConventionPlugin : Plugin<Project> {
                 }
                 format("markdown") {
                     target("**/*.md")
+                    targetExclude("**/build/**/*.md")
                     prettier()
                         .config(
                             mapOf(
@@ -68,13 +71,14 @@ class SpotlessConventionPlugin : Plugin<Project> {
                 }
                 format("toml") {
                     target("**/*.toml")
+                    targetExclude("**/build/**/*.toml")
                     prettier(mapOf("prettier-plugin-toml" to "0.3.5"))
                         .config(mapOf("parser" to "toml", "printWidth" to 80, "tabWidth" to 2))
                 }
                 format("xml") {
                     eclipseWtp(EclipseWtpFormatterStep.XML)
                     target("**/*.xml")
-                    targetExclude("**/build/**/*.xml", "tools/spotless/*.xml", ".idea/**")
+                    targetExclude("**/build/**/*.xml", "tools/spotless/*.xml", "**/.idea/**/*.xml")
                     // Look for the first XML tag that isn't a comment (<!--) or the xml declaration
                     // (<?xml)
                     licenseHeaderFile(
@@ -84,6 +88,7 @@ class SpotlessConventionPlugin : Plugin<Project> {
                 }
                 yaml {
                     target("**/*.yml", "**/*.yaml")
+                    targetExclude("**/build/**/*.yml", "**/build/**/*.yaml")
                     prettier()
                         .config(mapOf("parser" to "yaml", "printWidth" to 80, "tabWidth" to 2))
                 }
