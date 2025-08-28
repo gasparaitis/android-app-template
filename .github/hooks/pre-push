@@ -1,0 +1,16 @@
+#!/bin/sh
+
+echo "Running Spotless check..."
+
+# Run spotlessApply
+./gradlew spotlessApply
+
+# Check the exit code of the last command
+if [ $? -ne 0 ]; then
+  echo "Spotless check failed. Please fix the formatting issues before pushing."
+  exit 1 # Exit with a non-zero status to block the push
+fi
+
+echo "Spotless check passed."
+exit 0 # Exit with a zero status to allow the push
+
