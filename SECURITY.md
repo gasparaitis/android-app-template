@@ -1,5 +1,3 @@
-# Security Policy
-
 ## Found a Security Issue?
 
 Security is always top priority! If you've discovered a vulnerability, please
