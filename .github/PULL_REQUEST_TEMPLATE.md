@@ -1,4 +1,4 @@
-<!-- Thanks for taking the time to write this Pull Request ❤️ -->
+<!-- Thanks for taking the time to write this pull request!️ -->
 
 ## 🚀 Description
 

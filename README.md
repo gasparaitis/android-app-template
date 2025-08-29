@@ -15,3 +15,7 @@ This is a template for creating a new Android project.
   - Material 3 with Theme Builder
 - Google OSS Licenses
 - ViewModel
+
+---
+
+_Questions? Feel free to reach out at [your-email@example.com]_
