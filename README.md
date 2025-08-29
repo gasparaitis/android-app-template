@@ -2,11 +2,13 @@
 
 - probot/settings
 - Publishing: Maven Central
-- Publishing: GitHub
-- Documentation in via github.io. Use MkDocs.
-  https://squidfunk.github.io/mkdocs-material/
+- Publishing: GitHub (like NewPipe)
+- Documentation powered with https://squidfunk.github.io/mkdocs-material/ hosted
+  on github.io.
 - TROUBLESHOOTING.md
 - AGENT.md
+- RELEASE.md
+- List Android Studio plugins used
 
 name = Replace With Your Name
 
