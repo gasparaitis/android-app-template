@@ -8,7 +8,7 @@ This is a project maintained by **[Your Name]** ([your-email@example.com]).
 
 - [**CODE_OF_CONDUCT.md**](CODE_OF_CONDUCT.md) - Community guidelines
 - [**CONTRIBUTING.md**](CONTRIBUTING.md) - How to contribute to the project
-- [**FUNDING.yml**](.github/FUNDING.yml) - Information on how to support the
+- [**FUNDING.yml**](.github/_FUNDING.yml) - Information on how to support the
   project
 - [**LICENSE.TXT**](LICENSE.TXT) - Project license information
 - [**RELEASE.md**](RELEASE.md) - Release process and notes
