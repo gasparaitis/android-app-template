@@ -3,8 +3,7 @@
 Security is always top priority! If you've discovered a vulnerability, please
 help fix it safely.
 
-**Please don't create a public GitHub issue** - instead, email directly at
-**[your-email@example.com]**
+Create a Email directly at **replace-with-your-own@email.org**
 
 You will receive a response as soon as possible and confirmed issues will be
 fixed.
@@ -28,7 +27,8 @@ Only the latest version receives security updates.
 
 ## Questions?
 
-Have security questions or concerns? Email at [your-email@example.com]
+Have security questions or concerns? Email at
+**replace-with-your-own@email.org**
 
 ---
 

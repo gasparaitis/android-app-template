@@ -7,6 +7,7 @@
   https://squidfunk.github.io/mkdocs-material/
 - TROUBLESHOOTING.md
 - AGENT.md
-- ***
 
-_Questions? Feel free to reach out at [your-email@example.com]_
+name = Justas Gasparaitis email = replace-with-your-own@email.org
+
+_Questions? Feel free to reach out at **replace-with-your-own@email.org**_

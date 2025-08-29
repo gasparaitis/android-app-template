@@ -6,7 +6,7 @@ repository:
   description: Android App Template
 
   # A URL with more information about the repository
-  homepage: https://example.github.io/
+  homepage: https://example.github.io
 
   # A comma-separated list of topics to set on the repository
   topics: gasparaitis, android, android-app, android-library, android-template, compose, gradle, kotlin, template

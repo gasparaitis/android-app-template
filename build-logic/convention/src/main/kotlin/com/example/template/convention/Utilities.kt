@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 Justas Gasparaitis
+ * Copyright 2025 Replace With Your Name
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

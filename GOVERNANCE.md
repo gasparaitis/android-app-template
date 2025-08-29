@@ -2,7 +2,7 @@
 
 ## Maintenance
 
-This is a project maintained by **[Your Name]** ([your-email@example.com]).
+This is a project maintained by **Your Name**.
 
 ## Other Policies
 
@@ -18,4 +18,4 @@ This is a project maintained by **[Your Name]** ([your-email@example.com]).
 
 ---
 
-_Questions? Feel free to reach out at [your-email@example.com]_
+_Questions? Feel free to reach out at **replace-with-your-own@email.org**_

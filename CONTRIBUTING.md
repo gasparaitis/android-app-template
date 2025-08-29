@@ -22,4 +22,4 @@ for more information on using pull requests.
 
 ---
 
-_Questions? Feel free to reach out at [your-email@example.com]_
+_Questions? Feel free to reach out at **replace-with-your-own@email.org**_
