@@ -8,6 +8,8 @@
 - TROUBLESHOOTING.md
 - AGENT.md
 
-name = Justas Gasparaitis email = replace-with-your-own@email.org
+name = Replace With Your Name
+
+email = replace-with-your-own@email.org
 
 _Questions? Feel free to reach out at **replace-with-your-own@email.org**_
