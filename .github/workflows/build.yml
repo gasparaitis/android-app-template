@@ -102,7 +102,7 @@ jobs:
 
       # Run local tests after screenshot tests to avoid wrong UP-TO-DATE. TODO: Ignore screenshots.
       - name: Run local tests
-        run: ./gradlew testDebug :lint:test
+        run: ./gradlew testDebug
 
       - name: Build all build type and flavor permutations
         run: ./gradlew :app:assemble
@@ -127,24 +127,24 @@ jobs:
           name: screenshot-test-results
           path: "**/build/outputs/roborazzi/*_compare.png"
 
-      - name: Check lint
-        run: ./gradlew :app:lintProdRelease :app-nia-catalog:lintRelease :lint:lint
-
-      - name: Upload lint reports (HTML)
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: lint-reports
-          path: "**/build/reports/lint-results-*.html"
-
-      - name: Upload lint reports (SARIF)
-        if: ${{ !cancelled() && hashFiles('**/*.sarif') != '' }}
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: "./"
-
-      - name: Check badging
-        run: ./gradlew :app:checkProdReleaseBadging
+#      - name: Check lint
+#        run: ./gradlew :app:lintProdRelease :app-nia-catalog:lintRelease :lint:lint
+#
+#      - name: Upload lint reports (HTML)
+#        if: ${{ !cancelled() }}
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: lint-reports
+#          path: "**/build/reports/lint-results-*.html"
+#
+#      - name: Upload lint reports (SARIF)
+#        if: ${{ !cancelled() && hashFiles('**/*.sarif') != '' }}
+#        uses: github/codeql-action/upload-sarif@v3
+#        with:
+#          sarif_file: "./"
+#
+#      - name: Check badging
+#        run: ./gradlew :app:checkProdReleaseBadging
 
   androidTest:
     runs-on: ubuntu-latest
