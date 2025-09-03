@@ -1,0 +1,10 @@
+title: "[General] "
+body:
+  - type: textarea
+    id: discussion
+    attributes:
+      label: "Discussion (optional)"
+      description: "Start your discussion here—feel free to add context or ask questions."
+      placeholder: "Type your message..."
+    validations:
+      required: false

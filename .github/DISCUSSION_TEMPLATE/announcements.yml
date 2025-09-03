@@ -1,0 +1,10 @@
+title: "[Announcement] "
+body:
+  - type: input
+    id: summary
+    attributes:
+    label: "Summary"
+    description: "One-line summary of the announcement"
+    placeholder: "e.g., Version 1.2.0 released"
+    validations:
+    required: true
