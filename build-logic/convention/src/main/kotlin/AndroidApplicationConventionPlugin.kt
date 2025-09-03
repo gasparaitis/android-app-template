@@ -25,13 +25,14 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             apply(plugin = "com.android.application")
-            apply(plugin = "org.jetbrains.kotlin.android")
-            apply(plugin = "org.jetbrains.kotlin.plugin.compose")
-            apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
             apply(plugin = "com.dropbox.dependency-guard")
             apply(plugin = "convention.android.lint")
             apply(plugin = "convention.detekt")
             apply(plugin = "convention.hilt")
+            apply(plugin = "io.github.takahirom.roborazzi")
+            apply(plugin = "org.jetbrains.kotlin.android")
+            apply(plugin = "org.jetbrains.kotlin.plugin.compose")
+            apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
             extensions.configure<ApplicationExtension> {
                 configureAndroidKotlin(this)
                 configureAndroidCompose(this)

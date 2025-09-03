@@ -7,6 +7,11 @@
 - AGENT.md
 - RELEASE.md
 - List Android Studio plugins used
+- kotlinx.kover
+- Baseline Profiles
+- Startup Profiles
+- Gradle Managed Devices / Firebase Test Lab
+-
 
 name = Replace With Your Name
 

@@ -15,7 +15,9 @@
  */
 import com.example.template.convention.ProjectVersions
 
-plugins { alias(libs.plugins.convention.android.application) }
+plugins {
+    alias(libs.plugins.convention.android.application)
+}
 
 android {
     namespace = ProjectVersions.Android.APP_ID
