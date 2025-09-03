@@ -1,10 +1,72 @@
 title: "[General] "
+labels: ["discussion"]
 body:
-  - type: textarea
-    id: discussion
+  - type: markdown
     attributes:
-      label: "Discussion (optional)"
-      description: "Start your discussion here—feel free to add context or ask questions."
-      placeholder: "Type your message..."
+      value: "## Welcome to our community discussion! 👋\n\nThis space is for open conversations, questions, ideas, and community interactions. Whether you're new to the project or a longtime contributor, we're excited to hear from you!"
+
+  - type: dropdown
+    attributes:
+      label: "💭 Discussion Type"
+      description: "What kind of discussion are you starting?"
+      options:
+        - "❓ Question"
+        - "💡 Idea/Suggestion"
+        - "🗣️ General Discussion"
+        - "🤝 Seeking Collaboration"
+        - "📖 Share Knowledge/Tips"
+        - "🎯 Project Feedback"
+        - "👋 Introduction"
+        - "Other"
     validations:
-      required: false
+      required: true
+
+  - type: input
+    attributes:
+      label: "📌 Topic Summary"
+      description: "Briefly describe what you want to discuss"
+      placeholder: "e.g., Best practices for implementing feature X, or Help needed with configuration Y"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "💬 Discussion Details"
+      description: "Share your thoughts, questions, or ideas in detail"
+      placeholder: "Please provide context and details to help others understand and engage with your discussion:\n\n- What specific topic or issue are you addressing?\n- What's your current situation or experience?\n- What kind of input or help are you looking for?\n- Have you tried anything already?\n\nFeel free to include examples, links, or any other relevant information!"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "📋 Additional Context (Optional)"
+      description: "Any extra information that might be helpful"
+      placeholder: "e.g., \n- Your experience level with the project\n- Relevant environment details\n- Links to related discussions or documentation\n- Screenshots or code snippets (use ```code blocks```)"
+
+  - type: dropdown
+    attributes:
+      label: "🆘 Help Needed"
+      description: "How much help or input are you looking for?"
+      options:
+        - "Just starting a conversation"
+        - "Looking for advice/suggestions"
+        - "Need help solving a problem"
+        - "Seeking collaborators"
+        - "Sharing for feedback"
+
+  - type: checkboxes
+    attributes:
+      label: "📋 Community Guidelines"
+      description: "Please confirm you've followed our community standards"
+      options:
+        - label: "I have searched existing discussions to avoid duplicates"
+        - label: "I have provided enough context for others to understand and help"
+          required: true
+        - label: "My discussion follows the community code of conduct"
+          required: true
+        - label: "I'm open to different perspectives and constructive feedback"
+          required: true
+
+  - type: markdown
+    attributes:
+      value: "---\n**💡 Tips for great discussions:**\n- Use clear, descriptive titles\n- Provide context and background\n- Be respectful and welcoming to all participants\n- Consider using formatting (headers, lists, code blocks) to make your post readable\n- Tag relevant people with @ if you think they might be interested\n\n**🤝 Thank you for contributing to our community!**"

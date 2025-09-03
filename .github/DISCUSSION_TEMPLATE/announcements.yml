@@ -1,10 +1,71 @@
 title: "[Announcement] "
+labels: ["announcement"]
 body:
   - type: input
-    id: summary
     attributes:
-    label: "Summary"
-    description: "One-line summary of the announcement"
-    placeholder: "e.g., Version 1.2.0 released"
+      label: "📋 Summary"
+      description: "Provide a clear, one-line summary of your announcement"
+      placeholder: "e.g., Version 2.1.0 released with new features and bug fixes"
     validations:
-    required: true
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: "📂 Announcement Type"
+      description: "Select the category that best describes your announcement"
+      options:
+        - "🚀 New Release"
+        - "✨ New Feature"
+        - "🐛 Bug Fix"
+        - "🔧 Maintenance"
+        - "📚 Documentation"
+        - "🎉 Milestone"
+        - "⚠️ Important Notice"
+        - "🗓️ Event"
+        - "Other"
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: "⚡ Priority Level"
+      description: "How important is this announcement?"
+      options:
+        - "🔴 Critical - Immediate attention required"
+        - "🟠 High - Important for most users"
+        - "🟡 Medium - Relevant for some users"
+        - "🟢 Low - General information"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "📝 Detailed Description"
+      description: "Provide comprehensive details about your announcement"
+      placeholder: "Include relevant information such as:\n- What changed or what's new\n- Impact on users\n- Migration steps (if applicable)\n- Timeline or dates\n- Links to documentation or resources"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "🎯 Action Required (if any)"
+      description: "Do users need to take any specific actions?"
+      placeholder: "e.g., \n- Update to the latest version\n- Modify configuration files\n- Review breaking changes\n- No action required"
+
+  - type: input
+    attributes:
+      label: "🔗 Related Links"
+      description: "Provide links to releases, documentation, or other relevant resources"
+      placeholder: "https://github.com/yourrepo/releases/tag/v2.1.0"
+
+  - type: checkboxes
+    attributes:
+      label: "✅ Announcement Checklist"
+      description: "Please confirm before posting"
+      options:
+        - label: "I have reviewed the announcement for clarity and accuracy"
+          required: true
+        - label: "I have included all necessary links and resources"
+          required: true
+        - label: "This announcement is appropriate for the entire community"
+          required: true
