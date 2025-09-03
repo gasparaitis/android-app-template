@@ -74,7 +74,7 @@ jobs:
       - name: Run all local screenshot tests (Roborazzi)
         id: screenshotsverify
         continue-on-error: true
-        run: ./gradlew verifyRoborazziDemoDebug
+        run: ./gradlew verifyRoborazziDebug
 
       - name: Prevent pushing new screenshots if this is a fork
         id: checkfork_screenshots
