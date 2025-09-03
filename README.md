@@ -1,5 +1,10 @@
 # app-template
 
+- Lint checks/reports in GitHub Workflows
+- Check badging of APKs in GitHub Workflows
+- Document the choice between Paparazzi/Roborazzi/Compose Preview Screenshot
+  Testing
+- Add a sample Roborazzi test
 - Publishing: GitHub (like NewPipe)
 - Documentation powered with https://squidfunk.github.io/mkdocs-material/ hosted
   on github.io.
@@ -11,7 +16,6 @@
 - Baseline Profiles
 - Startup Profiles
 - Gradle Managed Devices / Firebase Test Lab
--
 
 name = Replace With Your Name
 
