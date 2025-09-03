@@ -1,7 +1,5 @@
 # app-template
 
-- probot/settings
-- Publishing: Maven Central
 - Publishing: GitHub (like NewPipe)
 - Documentation powered with https://squidfunk.github.io/mkdocs-material/ hosted
   on github.io.
