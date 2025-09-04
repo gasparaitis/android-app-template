@@ -14,12 +14,15 @@
  * limitations under the License.
  */
 import com.android.build.api.dsl.ApplicationExtension
+import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import com.example.template.convention.configureAndroidCompose
 import com.example.template.convention.configureAndroidKotlin
+import com.example.template.convention.configureBadgingTasks
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.getByType
 
 class AndroidApplicationConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -36,6 +39,9 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             extensions.configure<ApplicationExtension> {
                 configureAndroidKotlin(this)
                 configureAndroidCompose(this)
+            }
+            extensions.configure<ApplicationAndroidComponentsExtension> {
+                configureBadgingTasks(extensions.getByType<ApplicationExtension>(), this)
             }
         }
     }

@@ -2,7 +2,9 @@
 aboutLibraries = "13.0.0-b01"
 androidxActivityCompose = "1.10.1"
 androidxCoreKtx = "1.16.0"
+# AGP and tools should be updated together
 androidGradlePlugin = "8.12.1"
+androidTools = "31.12.2"
 androidxLintGradle = "1.0.0-alpha05"
 composeBom = "2025.06.01"
 dependencyGuard = "0.5.0"
@@ -38,6 +40,7 @@ roborazzi = { group = "io.github.takahirom.roborazzi", name = "roborazzi", versi
 roborazzi-accessibility-check = { group = "io.github.takahirom.roborazzi", name = "roborazzi-accessibility-check", version.ref = "roborazzi" }
 # Plugins
 android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 compose-gradle-plugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 detekt-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
 detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }

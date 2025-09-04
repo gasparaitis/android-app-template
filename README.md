@@ -16,6 +16,7 @@
 - Baseline Profiles
 - Startup Profiles
 - Gradle Managed Devices / Firebase Test Lab
+- customizer.sh
 
 name = Replace With Your Name
 
