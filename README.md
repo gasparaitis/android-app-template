@@ -1,9 +1,11 @@
 # app-template
 
-- Lint checks/reports in GitHub Workflows
-- Check badging of APKs in GitHub Workflows
 - Document the choice between Paparazzi/Roborazzi/Compose Preview Screenshot
   Testing
+  - https://github.com/sergio-sastre/Android-screenshot-testing-playground
+  - https://github.com/takahirom/roborazzi?tab=readme-ov-file#paparazzi-and-roborazzi-a-comparison
+  - https://medium.com/@natalia.kulbaka/comparing-snapshot-testing-libraries-paparazzi-roborazzi-compose-previews-screenshot-testing-b7c3b47f7f59
+  - https://slack-chats.kotlinlang.org/t/23121514/any-opinions-on-snapshot-testing-for-a-greenfield-project-on
 - Add a sample Roborazzi test
 - Publishing: GitHub (like NewPipe)
 - Documentation powered with https://squidfunk.github.io/mkdocs-material/ hosted
@@ -17,6 +19,12 @@
 - Startup Profiles
 - Gradle Managed Devices / Firebase Test Lab
 - customizer.sh
+
+## Possible improvements
+
+- Custom lint checks/reports
+  - https://github.com/android/nowinandroid/blob/main/lint/build.gradle.kts
+-
 
 name = Replace With Your Name
 

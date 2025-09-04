@@ -26,4 +26,5 @@ android {
 dependencies {
     implementation(libs.androidx.compose.ui.text.google.fonts)
     implementation(libs.androidx.core)
+    implementation(libs.core.ktx)
 }

@@ -32,7 +32,6 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             apply(plugin = "convention.android.lint")
             apply(plugin = "convention.detekt")
             apply(plugin = "convention.hilt")
-            apply(plugin = "io.github.takahirom.roborazzi")
             apply(plugin = "org.jetbrains.kotlin.android")
             apply(plugin = "org.jetbrains.kotlin.plugin.compose")
             apply(plugin = "org.jetbrains.kotlin.plugin.serialization")

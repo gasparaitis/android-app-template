@@ -37,5 +37,8 @@ internal fun DependencyHandlerScope.testImplementation(dependencyNotation: Any) 
 internal fun DependencyHandlerScope.detektPlugins(dependencyNotation: Any) =
     add("detektPlugins", dependencyNotation)
 
+internal fun DependencyHandlerScope.screenshotTestImplementation(dependencyNotation: Any) =
+    add("screenshotTestImplementation", dependencyNotation)
+
 internal val Project.libs: VersionCatalog
     get() = extensions.getByType(VersionCatalogsExtension::class.java).named("libs")

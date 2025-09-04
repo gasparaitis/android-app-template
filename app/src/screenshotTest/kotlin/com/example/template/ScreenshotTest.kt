@@ -13,18 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.example.template.convention.ProjectVersions
+package com.example.template
 
-plugins {
-    alias(libs.plugins.convention.feature)
-    alias(libs.plugins.about.libraries.android)
-}
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import com.android.tools.screenshot.PreviewTest
+import com.example.template.designsystem.theme.AppTheme
 
-android {
-    namespace = ProjectVersions.Android.APP_ID.plus(".feature.settings")
-}
-
-dependencies {
-    implementation(libs.about.libraries.compose.m3)
-    implementation(libs.core.ktx)
+@PreviewTest
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    AppTheme { Greeting("Android") }
 }

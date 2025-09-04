@@ -38,7 +38,12 @@ internal fun Project.configureAndroidCompose(commonExtension: CommonExtension<*,
             implementation(libs.findLibrary("androidx.compose.ui.tooling.preview").get())
 
             debugImplementation(libs.findLibrary("androidx.compose.ui.tooling").get())
+
+            screenshotTestImplementation(libs.findLibrary("androidx.ui.tooling").get())
+            screenshotTestImplementation(libs.findLibrary("screenshot.validation.api").get())
         }
+
+        experimentalProperties["android.experimental.enableScreenshotTest"] = true
 
         testOptions {
             unitTests {
