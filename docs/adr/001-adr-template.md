@@ -1,4 +1,4 @@
-# 001: Architectural Decision Record Template
+# 001: Architectural Decision Record Template: Michael Nygard's ADR template format
 
 ## Status
 

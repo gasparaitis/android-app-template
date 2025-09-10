@@ -12,14 +12,16 @@ is the recommended way to verify visual attributes in Compose UIs. The
 [resources](https://github.com/takahirom/roborazzi?tab=readme-ov-file#paparazzi-and-roborazzi-a-comparison)
 [were](https://medium.com/@natalia.kulbaka/comparing-snapshot-testing-libraries-paparazzi-roborazzi-compose-previews-screenshot-testing-b7c3b47f7f59)
 [considered](https://slack-chats.kotlinlang.org/t/23121514/any-opinions-on-snapshot-testing-for-a-greenfield-project-on)
-when choosing the right screenshot testing tool.
+[when](https://github.com/android-ui-testing/Cookbook) choosing the right
+screenshot testing tool.
 
 ## Decision
 
 Tools that were seriously considered were
-[Paparazzi](https://github.com/cashapp/paparazzi),
-[Roborazzi](https://github.com/takahirom/roborazzi) and
-[CPST](https://developer.android.com/studio/preview/compose-screenshot-testing).
+[Google's CPST](https://developer.android.com/studio/preview/compose-screenshot-testing),
+[cashapp/paparazzi](https://github.com/cashapp/paparazzi),
+[takahirom/roborazzi](https://github.com/takahirom/roborazzi),
+[facebook/screenshot-tests-for-android](https://github.com/facebook/screenshot-tests-for-android).
 CPST was chosen primarily because of the official Google support.
 
 ## Consequences
