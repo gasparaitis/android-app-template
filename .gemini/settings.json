@@ -1,0 +1,26 @@
+{
+  "advanced": {
+    "excludedEnvVars": [
+      "DEBUG",
+      "DEBUG_MODE",
+      "NODE_ENV"
+    ]
+  },
+  "context": {
+    "fileFiltering": {
+      "respectGitIgnore": false
+    },
+    "fileName": [
+      "GEMINI.md"
+    ],
+    "includeDirectories": [
+      "/Users/k-telesoftas-jg/AndroidStudioProjects/android-app-template"
+    ],
+    "loadFromIncludeDirectories": true
+  },
+  "ui": {
+    "hideBanner": true,
+    "hideTips": false,
+    "theme": "GitHub"
+  }
+}

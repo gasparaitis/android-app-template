@@ -1,0 +1,78 @@
+- Analytics
+  - [Google Analytics for Firebase](https://firebase.google.com/docs/analytics)
+- Architecture
+  - [AAC ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
+  - [kotlin-stdlib/kotlin/Result](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-result/)
+  - [Repository pattern](https://developer.android.com/topic/architecture#data-layer)
+- Build
+  - [Feature-based and layer-based modularization](https://developer.android.com/topic/modularization)
+  - [Gradle Version Catalogs](https://docs.gradle.org/current/userguide/platforms.html)
+- Collections
+  - [kotlinx.collections.immutable](https://github.com/Kotlin/kotlinx.collections.immutable)
+- Concurrency
+  - [Kotlin/kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+- Dynamic analysis
+  - [Firebase Crashlytics](https://firebase.google.com/docs/crashlytics)
+- Date & Time
+  - [Kotlin/kotlinx-datetime](https://github.com/Kotlin/kotlinx-datetime)
+- Dependency Injection
+  - [Hilt](https://dagger.dev/hilt/)
+- Image Loading
+  - [Coil](https://coil-kt.github.io/coil/)
+- Local storage
+  - Database: [SQLDelight](https://github.com/sqldelight/sqldelight)
+  - Key-value:
+    [DataStore](https://developer.android.com/topic/libraries/architecture/datastore)
+- Location
+  - [Nominatim (Geocoder)](https://nominatim.org/)
+  - [Play Services Location](https://play.google.com/sdks/details/com-google-android-gms-play-services-location)
+- Media
+  - [Media3 (ExoPlayer)](https://developer.android.com/media/media3)
+- Navigation
+  - [Nav3](https://developer.android.com/guide/navigation/navigation-3)
+- Network
+  - Caching: [OkHttp](https://square.github.io/okhttp/)
+  - HTTP client: [Retrofit](https://square.github.io/retrofit/)
+- Open Source Licenses
+  - [About Libraries](https://github.com/mikepenz/AboutLibraries)
+- Performance
+  - [Android Profiler](https://developer.android.com/studio/profile)
+  - [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview)
+  - [LeakCanary](https://github.com/square/leakcanary)
+  - [R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization)
+- Permissions
+  - [androidx.activity.compose.rememberLauncherForActivityResult](<https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary#rememberLauncherForActivityResult(androidx.activity.result.contract.ActivityResultContract,kotlin.Function1)>)
+  - [androidx.activity.result.contract.ActivityResultContracts](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts)
+- Persistent Work
+  - [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager)
+- Security
+  - API Key Management:
+    [Secrets Gradle Plugin](https://github.com/google/secrets-gradle-plugin)
+  -
+- Serialization
+  - [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
+- Static analysis
+  - Architecture: [LemonAppDev/konsist](https://github.com/LemonAppDev/konsist)
+  - Compose: [slackhq/compose-lints](https://github.com/slackhq/compose-lints)
+  - Formatting: [pinterest/ktlint](https://github.com/pinterest/ktlint)
+  - General: [detekt/detekt](https://github.com/detekt/detekt)
+  - Gradle:
+    [androidx.lint:lint-gradle](https://developer.android.com/jetpack/androidx/releases/lint)
+- Testing
+  - Framework: [JUnit](https://junit.org/junit5/)
+  - Hilt: [Hilt Testing](https://dagger.dev/hilt/testing)
+  - Screenshot:
+    [Compose Screenshot Testing](https://developer.android.com/jetpack/compose/tooling#screenshot-testing)
+  - UI:
+    [Compose Test Rule](https://developer.android.com/develop/ui/compose/testing)
+- UI
+  - [Compose](https://developer.android.com/jetpack/compose)
+  - [Material 3](https://developer.android.com/jetpack/compose/designsystems/material)
+  - [Material Theme Builder](https://material-foundation.github.io/material-theme-builder/)
+- Units of Measurement
+  - [JSR 385](https://github.com/unitsofmeasurement/unit-api)
+  - [JSR 385 - Reference Implementation](https://github.com/unitsofmeasurement/indriya)
+- Wearables
+  - [Wear OS](https://developer.android.com/training/wearables/get-started/creating)
+- Widgets
+  - [Jetpack Glance](https://developer.android.com/develop/ui/compose/glance)
