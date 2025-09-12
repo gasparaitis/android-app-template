@@ -71,5 +71,3 @@ more information about the codebase.
   the resolved dependencies for a given module.
 - `python3 .gemini/tools/project_lister.py <module_name>`: Use this to
   understand the file structure of a specific module (e.g., 'app', 'core:data').
-
-Test string!!

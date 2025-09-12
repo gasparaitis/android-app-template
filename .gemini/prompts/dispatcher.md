@@ -10,19 +10,13 @@ should handle the request.
       Compose UI, screen, component, Composable, or preview.
     - **Command:** `g-compose`
 
-2.  **`git_committer.md`**:
-
-    - **Triggers:** User wants to generate a git commit message. This is often
-      implied when the input is a `git diff`.
-    - **Command:** `g-commit` (You'll need to create this alias)
-
-3.  **`documentation_expert.md`**:
+2.  **`documentation_expert.md`**:
 
     - **Triggers:** User wants to add or improve documentation, write KDoc,
       create or update a README.
     - **Command:** `g-doc`
 
-4.  **Default (`g-ask`)**:
+3.  **Default (`g-ask`)**:
     - **Triggers:** For any other general question, explanation, or request that
       doesn't fit the specialists above.
     - **Command:** `g-ask`
@@ -44,11 +38,6 @@ preamble, or markdown formatting.
   `g-doc "add kdoc to the following file" -c app/src/main/java/com/example/LoginViewModel.kt`
 
 **Example 3:**
-
-- User Prompt: "feat: Add user authentication"
-- Your Output: `g-commit "feat: Add user authentication"`
-
-**Example 4:**
 
 - User Prompt: "explain how coroutines work"
 - Your Output: `g-ask "explain how coroutines work"`
