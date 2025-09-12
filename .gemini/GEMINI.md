@@ -37,6 +37,8 @@ libraries include:
 - **Image Loading:** Coil
 - **Testing:** JUnit, Compose Screenshot Testing
 
+HEllo!!!
+
 ## 4. Module Structure
 
 The project is organized into modules based on features and layers, following
