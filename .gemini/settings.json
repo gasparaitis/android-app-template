@@ -18,6 +18,9 @@
     ],
     "loadFromIncludeDirectories": true
   },
+  "model": {
+    "name": "gemini-2.5-flash"
+  },
   "ui": {
     "hideBanner": true,
     "hideTips": false,
