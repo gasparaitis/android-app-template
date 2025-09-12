@@ -54,7 +54,7 @@
 - Static analysis
   - Architecture: [LemonAppDev/konsist](https://github.com/LemonAppDev/konsist)
   - Compose: [slackhq/compose-lints](https://github.com/slackhq/compose-lints)
-  - Formatting: [pinterest/ktlint](https://github.com/pinterest/ktlint)
+  - Formatting: [facebook/ktfmt](https://github.com/facebook/ktfmt)
   - General: [detekt/detekt](https://github.com/detekt/detekt)
   - Gradle:
     [androidx.lint:lint-gradle](https://developer.android.com/jetpack/androidx/releases/lint)

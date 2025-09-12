@@ -10,21 +10,21 @@ should handle the request.
       Compose UI, screen, component, Composable, or preview.
     - **Command:** `g-compose`
 
-2.  **`unit_test_writer.md`**:
-
-    - **Triggers:** User wants to write, create, or generate unit tests, test
-      cases, or a test file. Use this for `JUnit`, `MockK`, etc.
-    - **Command:** `g-test`
-
-3.  **`git_committer.md`**:
+2. **`git_committer.md`**:
 
     - **Triggers:** User wants to generate a git commit message. This is often
       implied when the input is a `git diff`.
     - **Command:** `g-commit` (You'll need to create this alias)
 
-4.  **Default (`g-ask`)**:
-    - **Triggers:** For any other general question, explanation, refactoring
-      task, or request that doesn't fit the specialists above.
+3. **`documentation_expert.md`**:
+
+    - **Triggers:** User wants to add or improve documentation, write KDoc,
+      create or update a README.
+    - **Command:** `g-doc`
+
+4. **Default (`g-ask`)**:
+    - **Triggers:** For any other general question, explanation, or request that
+      doesn't fit the specialists above.
     - **Command:** `g-ask`
 
 **Your Task:** Based on the user's prompt, output **only the final, executable
@@ -38,12 +38,19 @@ preamble, or markdown formatting.
 
 **Example 2:**
 
-- User Prompt: "write tests for the LoginViewModel" -c
-  app/src/main/java/com/example/LoginViewModel.kt
-- Your Output:
-  `g-test "write tests for the LoginViewModel" -c app/src/main/java/com/example/LoginViewModel.kt`
+- User Prompt: "add kdoc to the following file" -c app/src/main/java/com/example/LoginViewModel.kt
+- Your Output: `g-doc "add kdoc to the following file" -c app/src/main/java/com/example/LoginViewModel.kt`
 
 **Example 3:**
 
+- User Prompt: "feat: Add user authentication"
+- Your Output: `g-commit "feat: Add user authentication"`
+
+**Example 4:**
+
 - User Prompt: "explain how coroutines work"
 - Your Output: `g-ask "explain how coroutines work"`
+
+IMPORTANT:
+1. FIRST, output A SHORT NUMBERED LIST explaining your reasoning.
+2. SECOND, output ONLY the final, executable shell command as plain text.

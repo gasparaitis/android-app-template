@@ -1,48 +1,42 @@
-# Project Context: MyAndroidApp
+# Project Context: Android App Template
 
 ## 1. High-Level Overview
 
-This is a native Android application for social media aggregation. The user can
-connect different social media accounts and view a unified feed. The app is
-written entirely in Kotlin.
+This project is a comprehensive Android application template. It's designed to serve as a foundation for new Android projects, incorporating a wide range of best practices and popular libraries. The goal is to provide a solid, well-structured starting point that saves developers time and effort when beginning a new app.
 
 ## 2. Architecture
 
-- **Pattern:** Model-View-ViewModel (MVVM) with a Repository layer.
-- **UI:** Jetpack Compose exclusively. We do not use XML layouts.
-- **Asynchronicity:** Kotlin Coroutines and Flow are used for all asynchronous
-  operations.
-- **Dependency Injection:** Hilt is used for dependency injection throughout the
-  app. ViewModels are injected using `@HiltViewModel`.
+- **Pattern:** The template follows the principles of Clean Architecture, promoting a separation of concerns and a more maintainable codebase. It utilizes a Model-View-ViewModel (MVVM) pattern for the presentation layer.
+- **UI:** The user interface is built entirely with Jetpack Compose, Google's modern toolkit for building native Android UI.
+- **Asynchronicity:** Kotlin Coroutines and Flow are used for managing background threads and handling asynchronous operations, ensuring a responsive and efficient application.
+- **Dependency Injection:** Hilt is integrated for dependency injection, simplifying the management of dependencies and improving testability.
 
 ## 3. Key Libraries & Frameworks
 
-- **Jetpack Compose:** For the entire UI layer.
-- **Compose Navigation:** For screen transitions.
-- **ViewModel:** For UI-related business logic and state management.
-- **Hilt:** For dependency injection.
-- **Room:** For local database persistence.
-- **Retrofit & OkHttp:** For networking with our REST API.
-- **Coil:** For image loading in Composables.
-- **JUnit 5 & MockK:** For unit testing.
-- **Espresso & Compose Test Rules:** For UI testing.
+This template integrates a curated list of libraries that are widely used and respected in the Android development community. For a complete and detailed list of libraries, please refer to the `docs/libraries.md` file. Some of the key libraries include:
+
+- **UI:** Jetpack Compose, Material 3
+- **Architecture:** AAC ViewModel, Repository pattern
+- **Concurrency:** Kotlin Coroutines
+- **Dependency Injection:** Hilt
+- **Networking:** Retrofit, OkHttp
+- **Local Storage:** SQLDelight, DataStore
+- **Image Loading:** Coil
+- **Testing:** JUnit, MockK, Compose Screenshot Testing
 
 ## 4. Module Structure
 
-- `:app`: The main application module, contains UI and feature logic.
-- `:core:data`: Contains repositories, data sources, and network models (DTOs).
-- `:core:database`: Contains Room database definitions and DAOs.
-- `:core:ui`: Contains shared, reusable Jetpack Compose components.
+The project is organized into modules based on features and layers, following the principles of modularization. This structure helps in separating concerns, improving build times, and enabling code reuse. The primary modules are:
+
+- `:app`: The main application module, which brings together all the features and dependencies.
+- `:core:*`: A set of core modules that provide shared functionality, such as data handling, database access, and design system components.
+- `:feature:*`: Feature modules that encapsulate specific features of the application.
 
 ## 5. Coding Conventions
 
-- Follow the official Kotlin style guide.
-- ViewModel state is exposed via a `StateFlow<UiState>`.
-- Use sealed classes for representing UI state (e.g., `Loading`, `Success`,
-  `Error`).
-- All Composable functions that emit UI should be placed in files ending with
-  `Screen.kt` or `Views.kt`.
-- All public functions and classes must have KDoc documentation.
+- The codebase adheres to the official Kotlin style guide.
+- Static analysis tools like Detekt and Ktlint are used to enforce code quality and consistency.
+- The project uses a custom convention plugin for Spotless to ensure consistent formatting.
 
 ## 6. Available Shell Scripts
 
@@ -55,11 +49,3 @@ more information about the codebase.
   the full content of a specific file.
 - `python3 .gemini/tools/gradle_inspector.py <module_name>`: Use this to inspect
   the resolved dependencies for a given module.
-
-## 7. API Specification
-
-The REST API contract is defined in the OpenAPI v3 spec. You can consult it for
-endpoint paths, request bodies, and response DTOs.
-
-- **Tool Command to Read:**
-  `python .gemini/tools/file_reader.py .gemini/api_schema.json`
