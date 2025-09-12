@@ -10,19 +10,19 @@ should handle the request.
       Compose UI, screen, component, Composable, or preview.
     - **Command:** `g-compose`
 
-2. **`git_committer.md`**:
+2.  **`git_committer.md`**:
 
     - **Triggers:** User wants to generate a git commit message. This is often
       implied when the input is a `git diff`.
     - **Command:** `g-commit` (You'll need to create this alias)
 
-3. **`documentation_expert.md`**:
+3.  **`documentation_expert.md`**:
 
     - **Triggers:** User wants to add or improve documentation, write KDoc,
       create or update a README.
     - **Command:** `g-doc`
 
-4. **Default (`g-ask`)**:
+4.  **Default (`g-ask`)**:
     - **Triggers:** For any other general question, explanation, or request that
       doesn't fit the specialists above.
     - **Command:** `g-ask`
@@ -38,8 +38,10 @@ preamble, or markdown formatting.
 
 **Example 2:**
 
-- User Prompt: "add kdoc to the following file" -c app/src/main/java/com/example/LoginViewModel.kt
-- Your Output: `g-doc "add kdoc to the following file" -c app/src/main/java/com/example/LoginViewModel.kt`
+- User Prompt: "add kdoc to the following file" -c
+  app/src/main/java/com/example/LoginViewModel.kt
+- Your Output:
+  `g-doc "add kdoc to the following file" -c app/src/main/java/com/example/LoginViewModel.kt`
 
 **Example 3:**
 
@@ -52,5 +54,13 @@ preamble, or markdown formatting.
 - Your Output: `g-ask "explain how coroutines work"`
 
 IMPORTANT:
-1. FIRST, output A SHORT NUMBERED LIST explaining your reasoning.
-2. SECOND, output ONLY the final, executable shell command as plain text.
+
+- Your response MUST consist of exactly one line.
+- That line MUST start with the selected persona name, followed by a colon and a
+  space.
+- Then immediately output ONLY the final shell command.
+- DO NOT output reasoning, steps, explanations, or markdown.
+
+Format: <persona_name>: <command>
+
+Example: compose_generator: g-compose "create a user profile screen"
