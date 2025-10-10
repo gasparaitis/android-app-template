@@ -1,24 +1,24 @@
 [versions]
-aboutLibraries = "13.0.0-b01"
-androidGradlePlugin = "8.12.1" # AGP and tools should be updated together
-androidTools = "31.12.2"
-androidxActivityCompose = "1.10.1"
-androidxCoreKtx = "1.16.0"
+aboutLibraries = "13.0.0"
+androidGradlePlugin = "8.13.0" # AGP and tools should be updated together
+androidTools = "31.13.0"
+androidxActivityCompose = "1.11.0"
+androidxCoreKtx = "1.17.0"
 androidxLintGradle = "1.0.0-alpha05"
-composeBom = "2025.06.01"
+composeBom = "2025.10.00"
 composeScreenshot = "0.0.1-alpha11"
 core = "1.17.0"
 dependencyGuard = "0.5.0"
 detekt = "1.23.8"
-detektCompose = "0.4.22"
-hilt = "2.51.1"
-kotlin = "2.2.0"
+detektCompose = "0.4.27"
+hilt = "2.57.2"
+kotlin = "2.2.20"
 kotlinxCollectionsImmutable = "0.4.0"
-kotlinxSerialization = "1.8.1"
-ksp = "2.2.0-2.0.2"
+kotlinxSerialization = "1.9.0"
+ksp = "2.2.20-2.0.4"
 ktfmt = "0.56" # Used in SpotlessConventionPlugin.kt
-lifecycleViewModelKtx = "2.9.1"
-spotless = "7.0.4"
+lifecycleViewModelKtx = "2.9.4"
+spotless = "8.0.0"
 coreKtx = "1.17.0"
 
 [libraries]
